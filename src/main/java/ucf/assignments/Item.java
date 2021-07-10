@@ -4,26 +4,48 @@
  */
 package ucf.assignments;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Item {
     String Description;
-    String DueDate;//YYYY-MM-DD
+    Calendar DueDate;//YYYY-MM-DD
     Boolean Complete;
 
     public String getDescription() {
-        return "task 1";
+        return Description;
     }
 
-    public void setDescription() {
-        //set this.Description = new description
+    public void setDescription(String newDescription) {
+        Description = newDescription;
     }
 
-    public String getDueDate() {
-        return "2021-12-31";
+    public String getDueDateString() {
+        String string;
+        string = String.format("%4d-%2d-%2d", DueDate.get(Calendar.YEAR), DueDate.get(Calendar.MONTH), DueDate.get(Calendar.DAY_OF_MONTH));
+        return string;
     }
 
-    public void setDueDate() {
+    public void setDueDate(String newDueDate) {
         //check that new due date follows format "\d\d\d\d-\d\d-\d\d"
-        //set this.DueDate = new due date
+        if(this.validateDate(newDueDate)) {
+            DateFormat dateForm = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+            try {
+                DueDate.setTime(dateForm.parse(newDueDate));//set this.DueDate = new due date
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private boolean validateDate(String newDueDate) {
+        if(newDueDate.matches("\\d\\d\\d\\d-\\d\\d-\\d\\d"))
+            return true;
+        else
+            return false;
     }
 
     public void markComplete() {

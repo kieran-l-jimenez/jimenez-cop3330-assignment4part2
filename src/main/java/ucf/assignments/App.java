@@ -12,28 +12,29 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/*Your application shall satisfy the following requirements:
-1. The application shall be able to manage at least 100 unique todo lists
-2. A todo list shall have a title
-3. A todo list shall have the capacity to store at least 100 unique items
-4. An item shall have a description
-5. An item shall have a due date, formatted as YYYY-MM-DD
-
-6. A user shall be able to add a new todo list
-7. A user shall be able to remove an existing todo list
-8. A user shall be able to edit the title of an existing todo list
-9. A user shall be able to add a new item to an existing todo list
-10. A user shall be able to remove an item from an existing todo list
-11. A user shall be able to edit the description of an item within an existing todo list
-12. A user shall be able to edit the due date of an item within an existing todo list
-13. A user shall be able to mark an item in a todo list as complete
-14. A user shall be able to display all of the existing items in a todo list
-15. A user shall be able to display only the incompleted items in a todo list
-16. A user shall be able to display only the completed items in a todo list
-17. A user shall be able to save all of the items in a single todo list to external storage
-18. A user shall be able to save all of the items across all of the todo lists to external storage
-19. A user shall be able to load a single todo list that was previously saved to external storage
-20. A user shall be able to load multiple todo lists that were previous saved to external storage
+/*Your application shall satisfy the following requirements (note that, as in the real world, these may have changed since [Part 1]):
+1. The application shall manage a single list of items
+    -The list shall have the capacity to store at least 100 unique items
+2. An item shall have a description
+    -A description shall be between 1 and 256 characters in length
+3. An item shall have a due date
+    -A due date shall be a valid date within the Gregorian Calendar
+    -A due date shall be displayed to users in the format: YYYY-MM-DD
+4. A user shall be able to add a new item to the list
+5. A user shall be able to remove an item from the list
+6. A user shall be able to clear the list of all items
+7. A user shall be able to edit the description of an item within the list
+8. A user shall be able to edit the due date of an item within the list
+9. A user shall be able to mark an item in the list as either complete or incomplete
+10. A user shall be able to display all of the existing items in the list
+11. A user shall be able to display only the incomplete items in the list
+12. A user shall be able to display only the completed items in the list
+13. A user shall be able to save the list (and all of its items) to external storage
+14. A user shall be able to load a list (and all of its items) from external storage
+15. The developer shall provide a help screen with directions on how to use the application.
+    -The help screen shall describe how to execute each behavioral requirement provided by the application (e.g. add an item, remove an item, edit an item, etc)
+    -The help screen shall include a dedication to "Rey"
+    -This help screen shall be provided as either a dedicated window within the application, or a markdown file called `readme.md` on your GitHub repository for the project.)
  */
 
 public class App extends Application {

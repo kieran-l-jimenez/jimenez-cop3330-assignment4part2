@@ -50,7 +50,7 @@ numItems : int
 class Item {
 Description : String
 'Req 2
-DueDate : String
+DueDate : Date
 'Req 3
 'Format: YYYY-MM-DD
 Complete : Boolean
