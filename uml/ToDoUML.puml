@@ -1,0 +1,74 @@
+@startuml
+
+class App {
+    + main()
+    + start()
+}
+
+'open GUI here, Reqs 7, 18, and 20 here?
+class ToDoController {
++ makeItem()
++ addList()
++ openList()
++ openSet()
++ saveList()
++ saveSet()
++ showIncomplete()
++ showComplete()
+}
+
+'It might be easier to have a simple "ListSet" class holding ToDoLists for loading
+'and saving sets of lists - Reqs: 18, 20
+
+class ToDoList {
+Title : String
+'Req 2
+Items : ArrayList
+'Req 3
+numItems : int
+
++setTitle()
+'Req 6/8
++getTitle() : String
++getItem() : Item
+'Req 14
++addItem()
+'Req 9
++removeItem()
+'Req 10
++editItem()
+'Req 11/12
++markItemComplete()
+'Req 13
++markItemIncomplete()
++sortItemComplete() : ArrayList
+'Req 16
++sortItemIncomplete() : ArrayList
+'Req 15
++sortItemDate()
++exportList()
+'Req 17
++loadList()
+'Req 19
+}
+
+class Item {
+Description : String
+'Req 4
+DueDate : String
+'Req 5 "YYYY-MM-DD"
+Complete : Boolean
+
++ getDescription() : String
++ setDescription()
++ getDueDate() : String
++ setDueDate()
++ markComplete()
++ markIncomplete()
+}
+
+ToDoList "1 " *-- "many" Item
+App - ToDoController
+ToDoController "1 " *-- "many" ToDoList
+javafx.Application <|-- App
+@enduml
