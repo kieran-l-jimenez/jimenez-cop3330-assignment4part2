@@ -5,70 +5,68 @@ class App {
     + start()
 }
 
-'open GUI here, Reqs 7, 18, and 20 here?
 class ToDoController {
-+ makeItem()
 + addList()
 + openList()
-+ openSet()
 + saveList()
-+ saveSet()
++ makeItem()
++ showAll()
 + showIncomplete()
 + showComplete()
 }
-
-'It might be easier to have a simple "ListSet" class holding ToDoLists for loading
-'and saving sets of lists - Reqs: 18, 20
-
+'Req 1
 class ToDoList {
 Title : String
-'Req 2
 Items : ArrayList
-'Req 3
 numItems : int
 
 +setTitle()
-'Req 6/8
 +getTitle() : String
 +getItem() : Item
-'Req 14
 +addItem()
-'Req 9
+'Req 4
 +removeItem()
-'Req 10
+'Req 5
 +editItem()
-'Req 11/12
+'Req 7, Req 8
++clearAllItems()
+'Req 6
 +markItemComplete()
-'Req 13
 +markItemIncomplete()
-+sortItemComplete() : ArrayList
-'Req 16
+'Req 9
++sortItemAll() : ArrayList
+'Req 10
 +sortItemIncomplete() : ArrayList
-'Req 15
+'Req 11
++sortItemComplete() : ArrayList
+'Req 12
 +sortItemDate()
 +exportList()
-'Req 17
+'Req 13
 +loadList()
-'Req 19
+'Req 14
 }
 
 class Item {
 Description : String
-'Req 4
+'Req 2
 DueDate : String
-'Req 5 "YYYY-MM-DD"
+'Req 3
+'Format: YYYY-MM-DD
 Complete : Boolean
 
 + getDescription() : String
 + setDescription()
 + getDueDate() : String
 + setDueDate()
++ validateDate() : Boolean
+'Req 3.1: see if 1)DD doesn't go past max for the month, 2)positive numbers
 + markComplete()
 + markIncomplete()
 }
 
 ToDoList "1 " *-- "many" Item
 App - ToDoController
-ToDoController "1 " *-- "many" ToDoList
+ToDoController -- ToDoList
 javafx.Application <|-- App
 @enduml

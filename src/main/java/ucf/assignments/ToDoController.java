@@ -4,20 +4,19 @@
  */
 package ucf.assignments;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
 public class ToDoController {
     @FXML
     private TextField itemDescriptionBox1;
     @FXML
-    private TextField itemDescriptionBox2;
-    @FXML
     private TextField itemDueDateBox1;
     @FXML
-    private TextField itemDueDateBox2;
-
+    private ChoiceBox itemFilter;
 
     @FXML
     public void makeItem(ActionEvent actionEvent) {
@@ -43,23 +42,9 @@ public class ToDoController {
     }
 
     @FXML
-    public void openSet(ActionEvent actionEvent) {
-        //prompt for path to JSON file
-        //clear current set
-        //open all ToDoLists similar to openList
-        //create new tabs for each ToDoList with their Title
-    }
-
-    @FXML
     public void saveList(ActionEvent actionEvent) {
         //prompt for directory to save list
         //save ToDoList data (including ArrayList of Items) as JSON
-    }
-
-    @FXML
-    public void saveSet(ActionEvent actionEvent) {
-        //prompt for directory to save set
-        //loop save each ToDoList as a single JSON file
     }
 
     @FXML
