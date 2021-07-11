@@ -38,11 +38,11 @@ public class Item {
     }
 
     public void setDueDate(String newDueDate) {
-        dueDate = new GregorianCalendar();
-
         //check that new due date follows format "\d\d\d\d-\d\d-\d\d"
         if (this.validateDate(newDueDate)) {
+            dueDate = new GregorianCalendar();
             DateFormat dateForm = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
             try {
                 dueDate.setTime(dateForm.parse(newDueDate));//set this.DueDate = new due date
             } catch (ParseException e) {

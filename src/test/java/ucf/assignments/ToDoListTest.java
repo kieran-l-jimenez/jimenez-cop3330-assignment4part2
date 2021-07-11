@@ -54,7 +54,7 @@ class ToDoListTest {
         //new ToDoList object
         ToDoList temp = new ToDoList();
         //call addItem
-        temp.addItem("example description", "2021-07-11");
+        temp.addItem("example description", "2023-07-11");
         //assert first item in ArrayList Items description or date = expected item description or date
         assertTrue(temp.getItem(0).getDescription().equals("example description"));
     }
@@ -99,33 +99,61 @@ class ToDoListTest {
 
     @Test
     void editItemDueDate() {
+        // Requirement 8
         //new ToDoList object
-        //new ArrayList Items with 3 items
-        //set ToDoList Items to that ArrayList
+        ToDoList tempList = new ToDoList();
+
+        //add to ArrayList Items 3 items
+        tempList.addItem("description 1", "2020-01-01");
+        tempList.addItem("description 2", "2020-01-02");
+        tempList.addItem("description 3", "2021-01-01");
+
         //call editItem changing duedate of item 1
+        tempList.editItemDate(tempList.getItem(0), "2021-01-02");
+
         //assert item 1 dueDate is new date
+        assertEquals("2021-01-02", tempList.getItem(2).getDueDateString());
     }
 
     @Test
     void editItemDescription() {
+        // Requirement 7
         //new ToDoList object
-        //new ArrayList Items with 3 items
-        //set ToDoList Items to that ArrayList
+        ToDoList tempList = new ToDoList();
+
+        //add to ArrayList Items 3 items
+        tempList.addItem("description 1", "2020-01-01");
+        tempList.addItem("description 2", "2020-01-02");
+        tempList.addItem("description 3", "2021-01-01");
+
         //call editItem changing description of item 2
+        tempList.editItemDescription(tempList.getItem(1), "new description 2");
+
         //assert item 2 dueDate is new date
+        assertEquals("new description 2", tempList.getItem(1).getDescription());
     }
 
     @Test
     void editItem_noChange() {
         //new ToDoList object
-        //new ArrayList Items with 3 items
-        //set ToDoList Items to that ArrayList
+        ToDoList tempList = new ToDoList();
+
+        //add to ArrayList Items 3 items
+        tempList.addItem("description 1", "2019-01-01");
+        tempList.addItem("description 2", "2020-01-02");
+        tempList.addItem("description 3", "2021-01-01");
+
         //call editItem changing duedate of item 1 with invalid string such as "jan 12th"
+        tempList.editItemDate(tempList.getItem(0), "Invalid String");
+
         //assert item 1 dueDate is old date
+        assertEquals("2019-01-01", tempList.getItem(0).getDueDateString());
+
     }
 
     @Test
     void markItemComplete() {
+        // Requirement 9.1
         //new ToDoList object
         //new ArrayList Items with 3 items, item 1 Complete = false
         //set ToDoList Items to that ArrayList
@@ -135,6 +163,7 @@ class ToDoListTest {
 
     @Test
     void markItemIncomplete() {
+        // Requirement 9.2
         //new ToDoList object
         //new ArrayList Items with 3 items, item 1 Complete = true
         //set ToDoList Items to that ArrayList

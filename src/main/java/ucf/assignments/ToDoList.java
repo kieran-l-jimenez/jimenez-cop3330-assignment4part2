@@ -69,6 +69,7 @@ public class ToDoList {
         if (items.contains(target)) {
             //replace data with copy of old data + new date
             items.get(items.indexOf(target)).setDueDate(newDate);
+            this.sortItemDate();
         }
     }
 
