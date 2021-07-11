@@ -43,45 +43,80 @@ public class ToDoList {
         return retItem;
     }
 
-    public void removeItem() {
+    public void removeItem(Item target) {
         //find item in arrayList
-        //remove item
-        //decrement numItems
+        if (Items.contains(target)) {
+            Items.remove(target);//remove item
+            numItems--;//decrement numItems
+        }
     }
 
-    public void editItem() {
+    public void editItemDescription(Item target, String newDescription) {
         //find item in arrayList
-        //replace data with copy of old data + any changes
+        if (Items.contains(target)) {
+            //replace data with copy of old data + new description
+            Items.get(Items.indexOf(target)).setDescription(newDescription);
+        }
     }
 
-    public void markItemComplete() {
-        //find item
-        //have item call markComplete
+    public void editItemDate(Item target, String newDate) {
+        //find item in arrayList
+        if (Items.contains(target)) {
+            //replace data with copy of old data + new date
+            Items.get(Items.indexOf(target)).setDueDate(newDate);
+        }
     }
 
-    public void markItemIncomplete() {
+    public void markItemComplete(Item target) {
         //find item
-        //have item call markIncomplete
+        if (Items.contains(target)) {
+            //have item call markComplete
+            Items.get(Items.indexOf(target)).markComplete();
+        }
+    }
+
+    public void markItemIncomplete(Item target) {
+        //find item
+        if (Items.contains(target)) {
+            //have item call markIncomplete
+            Items.get(Items.indexOf(target)).markIncomplete();
+        }
     }
 
     public ArrayList<Item> sortItemComplete() {
-        //0 - <numItems
-        //if item.Complete, add
-        //return new/temp ArrayList
         ArrayList<Item> tempArrayList = new ArrayList<Item>();
+
+        //0 - <numItems
+        for (int i = 0; i < numItems; i++) {
+            if (Items.get(i).getComplete()) {
+                //if item.Complete, add
+                tempArrayList.add(Items.get(i));
+            }
+        }
+        //return new/temp ArrayList
         return tempArrayList;
     }
 
     public ArrayList<Item> sortItemIncomplete() {
-        //0 - <numItems
-        //if !item.Complete, add
-        //return new/temp ArrayList
         ArrayList<Item> tempArrayList = new ArrayList<Item>();
+
+        //0 - <numItems
+        for (int i = 0; i < numItems; i++) {
+            if (!Items.get(i).getComplete()) {
+                //if item.Complete is false, add
+                tempArrayList.add(Items.get(i));
+            }
+        }
+        //return new/temp ArrayList
         return tempArrayList;
     }
 
     public void sortItemDate() {
-        //sorts Items by DueDate
+        //Items .toArray arrays
+        //.sort arrays by DueDate
+        //TODO change Item to implement Comparable interface
+        //.clear Items
+        //for (0 -> numItems) : Items.add(arrays[i])
     }
 
     public void exportList() {

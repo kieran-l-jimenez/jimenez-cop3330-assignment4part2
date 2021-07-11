@@ -7,44 +7,43 @@ import static org.junit.jupiter.api.Assertions.*;
 class ItemTest {
 
     @Test
-    void getDescription() {
-        //new Item
-        //Item.Description = "some string"
-        //assert Item.getDescription is same as "some string"
-    }
-
-    @Test
     void setDescription() {
         //new Item
+        Item temp = new Item();
         //Item.setDescription "some string"
+        temp.setDescription("some string?");
         //assert Item.Description is "some string"
-    }
-
-    @Test
-    void getDueDate() {
-        //new Item
-        //Item.DueDate = "2021-01-01"
-        //assert equals Item.getDueDate, "2021-01-01"
+        assertEquals("some string?", temp.getDescription());
     }
 
     @Test
     void setDueDate() {
         //new Item
+        Item temp = new Item();
         //Item.setDueDate("2021-01-01")
+        temp.setDueDate("2021-01-01");
         //assert equals Item.DueDate, "2021-01-01"
+        assertEquals("2021-01-01", temp.getDueDateString());
     }
 
     @Test
     void markComplete() {
         //new Item
+        Item temp = new Item();
         //Item markComplete
+        temp.markComplete();
         //assert Item.Complete
+        assertTrue(temp.getComplete());
     }
 
     @Test
     void markIncomplete() {
         //new Item
+        Item temp = new Item();
         //Item markIncomplete
+        temp.markComplete();
+        temp.markIncomplete();
         //assert false Item.Complete
+        assertFalse(temp.getComplete());
     }
 }

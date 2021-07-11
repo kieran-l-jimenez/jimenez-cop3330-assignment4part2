@@ -59,7 +59,7 @@ class Item {
 + setDescription()
 + getDueDate() : String
 + setDueDate()
-+ validateDate() : Boolean
+- validateDate() : Boolean
 'Req 3.1: see if 1)DD doesn't go past max for the month, 2)positive numbers
 + markComplete()
 + markIncomplete()

@@ -12,6 +12,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 public class Item {
@@ -32,11 +33,13 @@ public class Item {
     }
 
     public String getDueDateString() {
-        return String.format("%4d-%2d-%2d", DueDate.get(Calendar.YEAR), DueDate.get(Calendar.MONTH),
+        return String.format("%4d-%02d-%02d", DueDate.get(Calendar.YEAR), DueDate.get(Calendar.MONTH)+1,
                 DueDate.get(Calendar.DAY_OF_MONTH));
     }
 
     public void setDueDate(String newDueDate) {
+        DueDate = new GregorianCalendar();
+
         //check that new due date follows format "\d\d\d\d-\d\d-\d\d"
         if (this.validateDate(newDueDate)) {
             DateFormat dateForm = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
@@ -50,6 +53,10 @@ public class Item {
 
     private boolean validateDate(String newDueDate) {
         return newDueDate.matches("\\d\\d\\d\\d-\\d\\d-\\d\\d");
+    }
+
+    public boolean getComplete() {
+        return Complete;
     }
 
     public void markComplete() {
