@@ -14,36 +14,42 @@ class ToDoController {
 + showIncomplete()
 + showComplete()
 }
+
 'Req 1
 class ToDoList {
 - Title : String
 - Items : ArrayList
 - numItems : int
 
-+setTitle()
-+getTitle() : String
-+getItem() : Item
-+addItem()
++ ToDoList()
++ setTitle()
++ getTitle() : String
++ getItem() : Item
++ addItem()
 'Req 4
-+removeItem()
++ removeItem()
 'Req 5
-+editItem()
-'Req 7, Req 8
-+clearAllItems()
++ editItemDescription()
+'Req 7
++ editItemDate()
+'Req 8
++ getItemList() : ArrayList
++ setItemList()
++ clearAllItems()
 'Req 6
-+markItemComplete()
-+markItemIncomplete()
++ markItemComplete()
++ markItemIncomplete()
 'Req 9
-+sortItemAll() : ArrayList
++ sortItemAll() : ArrayList
 'Req 10
-+sortItemIncomplete() : ArrayList
++ sortItemIncomplete() : ArrayList
 'Req 11
-+sortItemComplete() : ArrayList
++ sortItemComplete() : ArrayList
 'Req 12
-+sortItemDate()
-+exportList()
++ sortItemDate()
++ exportList()
 'Req 13
-+loadList()
++ loadList()
 'Req 14
 }
 
@@ -55,6 +61,7 @@ class Item {
 'Format: YYYY-MM-DD
 - Complete : Boolean
 
++ Item()
 + getDescription() : String
 + setDescription()
 + getDueDate() : String

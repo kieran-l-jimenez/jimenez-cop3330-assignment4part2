@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3c62869-efe2-46f4-8d09-fe6ed44ce2d5" name="Default Changelist" comment="Updates .java files&#10;&#10;-.java files now follow Oracle coding standard&#10;-Class variables changed to private, reflected in UML">
+    <list default="true" id="c3c62869-efe2-46f4-8d09-fe6ed44ce2d5" name="Default Changelist" comment="Partially finishes ToDoList implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/SortByDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ucf/assignments/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ucf/assignments/ItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ucf/assignments/ItemTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ucf/assignments/ToDoListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ucf/assignments/ToDoListTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uml/ToDoUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/ToDoUML.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,9 +66,9 @@
       <list>
         <option value="FxmlFile" />
         <option value="UML Class" />
-        <option value="Class" />
         <option value="JavaFXApplication" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -101,7 +104,7 @@
       <recent name="ucf.assignments" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ItemTest">
+  <component name="RunManager" selected="Gradle.ToDoListTest.removeItem">
     <configuration name="ItemTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -123,12 +126,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ItemTest.markComplete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ItemTest.setDescriptionLarge" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ItemTest.markComplete&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ItemTest.setDescriptionLarge&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -144,12 +147,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ItemTest.markIncomplete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ToDoListTest.addItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ItemTest.markIncomplete&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.addItem&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -165,12 +168,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ItemTest.setDescription" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ToDoListTest.capacityCheck" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ItemTest.setDescription&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.capacityCheck&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -186,12 +189,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ItemTest.setDueDate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ToDoListTest.removeItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ItemTest.setDueDate&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.removeItem&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -209,11 +212,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ToDoListTest.removeItem" />
         <item itemvalue="Gradle.ItemTest" />
-        <item itemvalue="Gradle.ItemTest.setDueDate" />
-        <item itemvalue="Gradle.ItemTest.markIncomplete" />
-        <item itemvalue="Gradle.ItemTest.markComplete" />
-        <item itemvalue="Gradle.ItemTest.setDescription" />
+        <item itemvalue="Gradle.ToDoListTest.addItem" />
+        <item itemvalue="Gradle.ItemTest.setDescriptionLarge" />
+        <item itemvalue="Gradle.ToDoListTest.capacityCheck" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625969879941</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Partially finishes ToDoList implementation">
+      <created>1625974981154</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1625974981154</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,7 +292,8 @@
     <MESSAGE value="Fills in code for Item class&#10;&#10;-Also handles date formatting in and out" />
     <MESSAGE value="Adds readme.md" />
     <MESSAGE value="Updates .java files&#10;&#10;-.java files now follow Oracle coding standard&#10;-Class variables changed to private, reflected in UML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates .java files&#10;&#10;-.java files now follow Oracle coding standard&#10;-Class variables changed to private, reflected in UML" />
+    <MESSAGE value="Partially finishes ToDoList implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Partially finishes ToDoList implementation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

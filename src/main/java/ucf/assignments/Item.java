@@ -1,7 +1,7 @@
 /*
  * Item
  *
- * 2021-07-10
+ * 2021-07-11
  *
  *  UCF COP3330 Summer 2021 Assignment 4 Solution
  *  Copyright 2021 Kieran Jimenez
@@ -16,35 +16,35 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 public class Item {
-    private String Description;
-    private Calendar DueDate;
-    private Boolean Complete;
+    private String description;
+    private Calendar dueDate;
+    private Boolean complete;
 
     public Item() {
-        Complete = false;
+        complete = false;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String newDescription) {
-        Description = newDescription;
+        description = newDescription;
     }
 
     public String getDueDateString() {
-        return String.format("%4d-%02d-%02d", DueDate.get(Calendar.YEAR), DueDate.get(Calendar.MONTH)+1,
-                DueDate.get(Calendar.DAY_OF_MONTH));
+        return String.format("%4d-%02d-%02d", dueDate.get(Calendar.YEAR), dueDate.get(Calendar.MONTH)+1,
+                dueDate.get(Calendar.DAY_OF_MONTH));
     }
 
     public void setDueDate(String newDueDate) {
-        DueDate = new GregorianCalendar();
+        dueDate = new GregorianCalendar();
 
         //check that new due date follows format "\d\d\d\d-\d\d-\d\d"
         if (this.validateDate(newDueDate)) {
             DateFormat dateForm = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             try {
-                DueDate.setTime(dateForm.parse(newDueDate));//set this.DueDate = new due date
+                dueDate.setTime(dateForm.parse(newDueDate));//set this.DueDate = new due date
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -56,14 +56,14 @@ public class Item {
     }
 
     public boolean getComplete() {
-        return Complete;
+        return complete;
     }
 
     public void markComplete() {
-        Complete = true;
+        complete = true;
     }
 
     public void markIncomplete() {
-        Complete = false;
+        complete = false;
     }
 }

@@ -1,7 +1,7 @@
 /*
  * ToDoList
  *
- * 2021-07-10
+ * 2021-07-11
  *
  *  UCF COP3330 Summer 2021 Assignment 4 Solution
  *  Copyright 2021 Kieran Jimenez
@@ -11,17 +11,23 @@ package ucf.assignments;
 import java.util.ArrayList;
 
 public class ToDoList {
-    private String Title;
-    private ArrayList<Item> Items;
+    private String title;
+    private ArrayList<Item> items;
     private int numItems;
+
+    public ToDoList() {
+        title = "";
+        items = new ArrayList<>();
+        numItems = 0;
+    }
 
     public void setTitle(String newTitle) {
         //user inputs new data into text field in GUI window
-        Title = newTitle;
+        title = newTitle;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void addItem(String desc, String date) {
@@ -30,81 +36,103 @@ public class ToDoList {
         Item temp = new Item();
         temp.setDescription(desc);
         temp.setDueDate(date);
-        Items.add(temp);
+        items.add(temp);
         //increment numItems
         numItems++;
         //insert sort by date, call sorting method here
-
+        this.sortItemDate();
     }
 
     public Item getItem(int index) {
         //returns a specific item data, most likely in a loop to display all items to GUI window
-        Item retItem = Items.get(index);
-        return retItem;
+        return items.get(index);
     }
 
     public void removeItem(Item target) {
         //find item in arrayList
-        if (Items.contains(target)) {
-            Items.remove(target);//remove item
+        if (items.contains(target)) {
+            items.remove(target);//remove item
             numItems--;//decrement numItems
         }
     }
 
     public void editItemDescription(Item target, String newDescription) {
         //find item in arrayList
-        if (Items.contains(target)) {
+        if (items.contains(target)) {
             //replace data with copy of old data + new description
-            Items.get(Items.indexOf(target)).setDescription(newDescription);
+            items.get(items.indexOf(target)).setDescription(newDescription);
         }
     }
 
     public void editItemDate(Item target, String newDate) {
         //find item in arrayList
-        if (Items.contains(target)) {
+        if (items.contains(target)) {
             //replace data with copy of old data + new date
-            Items.get(Items.indexOf(target)).setDueDate(newDate);
+            items.get(items.indexOf(target)).setDueDate(newDate);
         }
+    }
+
+    public ArrayList<Item> getItemList() {
+        return items;
+    }
+
+    public void setItemList(ArrayList<Item> newList) {
+        items = newList;
+    }
+
+    public void clearAllItems() {
+        items.clear();
     }
 
     public void markItemComplete(Item target) {
         //find item
-        if (Items.contains(target)) {
+        if (items.contains(target)) {
             //have item call markComplete
-            Items.get(Items.indexOf(target)).markComplete();
+            items.get(items.indexOf(target)).markComplete();
         }
     }
 
     public void markItemIncomplete(Item target) {
         //find item
-        if (Items.contains(target)) {
+        if (items.contains(target)) {
             //have item call markIncomplete
-            Items.get(Items.indexOf(target)).markIncomplete();
+            items.get(items.indexOf(target)).markIncomplete();
         }
     }
 
-    public ArrayList<Item> sortItemComplete() {
-        ArrayList<Item> tempArrayList = new ArrayList<Item>();
+    public ArrayList<Item> sortItemAll() {
+        ArrayList<Item> tempArrayList = new ArrayList<>();
 
-        //0 - <numItems
+        //0 -> <numItems
         for (int i = 0; i < numItems; i++) {
-            if (Items.get(i).getComplete()) {
-                //if item.Complete, add
-                tempArrayList.add(Items.get(i));
-            }
+                tempArrayList.add(items.get(i));
         }
         //return new/temp ArrayList
         return tempArrayList;
     }
 
     public ArrayList<Item> sortItemIncomplete() {
-        ArrayList<Item> tempArrayList = new ArrayList<Item>();
+        ArrayList<Item> tempArrayList = new ArrayList<>();
 
-        //0 - <numItems
+        //0 -> <numItems
         for (int i = 0; i < numItems; i++) {
-            if (!Items.get(i).getComplete()) {
+            if (!items.get(i).getComplete()) {
                 //if item.Complete is false, add
-                tempArrayList.add(Items.get(i));
+                tempArrayList.add(items.get(i));
+            }
+        }
+        //return new/temp ArrayList
+        return tempArrayList;
+    }
+
+    public ArrayList<Item> sortItemComplete() {
+        ArrayList<Item> tempArrayList = new ArrayList<>();
+
+        //0 -> <numItems
+        for (int i = 0; i < numItems; i++) {
+            if (items.get(i).getComplete()) {
+                //if item.Complete, add
+                tempArrayList.add(items.get(i));
             }
         }
         //return new/temp ArrayList
@@ -112,11 +140,8 @@ public class ToDoList {
     }
 
     public void sortItemDate() {
-        //Items .toArray arrays
         //.sort arrays by DueDate
-        //TODO change Item to implement Comparable interface
-        //.clear Items
-        //for (0 -> numItems) : Items.add(arrays[i])
+        items.sort(new SortByDate());
     }
 
     public void exportList() {
