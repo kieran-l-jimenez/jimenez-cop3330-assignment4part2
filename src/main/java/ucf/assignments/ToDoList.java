@@ -13,23 +13,30 @@ public class ToDoList {
 
     public void setTitle(String newTitle) {
         //user inputs new data into text field in GUI window
+        Title = newTitle;
     }
 
     public String getTitle() {
-        return "List 1";
+        return Title;
     }
 
-    public Item getItem() {
+    public Item getItem(int index) {
         //returns a specific item data, most likely in a loop to display all items to GUI window
-        Item tempItem = new Item();
-        return tempItem;
+        Item retItem = Items.get(index);
+        return retItem;
     }
 
-    public void addItem() {
+    public void addItem(String desc, String date) {
         //window asks for item info(passed in from controller class)
         //add item to Items
+        Item temp = new Item();
+        temp.setDescription(desc);
+        temp.setDueDate(date);
+        Items.add(temp);
         //increment numItems
-        //insert sort by date
+        numItems++;
+        //insert sort by date, call sorting method here
+
     }
 
     public void removeItem() {

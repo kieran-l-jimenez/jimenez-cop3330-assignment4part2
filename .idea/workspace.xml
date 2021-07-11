@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3c62869-efe2-46f4-8d09-fe6ed44ce2d5" name="Default Changelist" comment="Updates UML and Removes Mentions of Sets&#10;&#10;-Partial progress on GUI">
+    <list default="true" id="c3c62869-efe2-46f4-8d09-fe6ed44ce2d5" name="Default Changelist" comment="Fills in code for Item class&#10;&#10;-Also handles date formatting in and out">
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ucf/assignments/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ucf/assignments/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/ToDoUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/ToDoUML.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625952339158</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fills in code for Item class&#10;&#10;-Also handles date formatting in and out">
+      <created>1625958617535</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1625958617535</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,7 +176,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Writes PseudoCode Methods &amp; PseudoCode Tests" />
     <MESSAGE value="Updates UML and Removes Mentions of Sets&#10;&#10;-Partial progress on GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates UML and Removes Mentions of Sets&#10;&#10;-Partial progress on GUI" />
+    <MESSAGE value="Fills in code for Item class&#10;&#10;-Also handles date formatting in and out" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fills in code for Item class&#10;&#10;-Also handles date formatting in and out" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -15,6 +15,10 @@ public class Item {
     Calendar DueDate;//YYYY-MM-DD
     Boolean Complete;
 
+    public Item() {
+        Complete = false;
+    }
+
     public String getDescription() {
         return Description;
     }
