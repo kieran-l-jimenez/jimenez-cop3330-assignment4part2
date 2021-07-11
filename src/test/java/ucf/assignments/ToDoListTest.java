@@ -14,38 +14,44 @@ class ToDoListTest {
         // Requirement 1
         //new ToDoList object
         ToDoList temp = new ToDoList();
+
         //try loop add 100 items
         try {
             for (int i = 0; i < 100; i++) {
-                temp.addItem(String.format("Task #%d", i), "2021-7-11");
+                temp.addItem(String.format("Task #%d", i), "2021-07-11");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         //assert sizeof == 100
         assertEquals(100, temp.getItemList().size());
     }
 
     @Test
-    void setTitle() {
+    void setAndGetTitle() {
         //new ToDoList object
+        ToDoList tempList = new ToDoList();
+
         //call setTitle with "some string"
+        tempList.setTitle("some String");
+
         //assert ToDoList.Title.equals "some string"
+        assertEquals("some String", tempList.getTitle());
     }
 
     @Test
-    void getTitle() {
+    void setAndGetItem() {
         //new ToDoList object
-        //set ToDoList.Title = "something"
-        //assert ToDoList.getTitle = "something"
-    }
+        ToDoList tempList = new ToDoList();
 
-    @Test
-    void getItem() {
-        //new ToDoList object
         //new ArrayList Items with 3 items
-        //set ToDoList Items to that ArrayList
+        tempList.addItem("description 1", "2020-01-01");
+        tempList.addItem("description 2", "2020-01-02");
+        tempList.addItem("description 3", "2021-01-01");
+
         //assert :getItem passing in index.description = expected description
+        assertEquals("description 3", tempList.getItem(2).getDescription());
     }
 
     @Test
