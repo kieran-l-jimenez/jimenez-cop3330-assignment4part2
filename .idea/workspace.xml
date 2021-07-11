@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3c62869-efe2-46f4-8d09-fe6ed44ce2d5" name="Default Changelist" comment="Labels and Implements tests for requirements 7-8" />
+    <list default="true" id="c3c62869-efe2-46f4-8d09-fe6ed44ce2d5" name="Default Changelist" comment="Labels and Implements tests for requirements 7-8">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ucf/assignments/ToDoListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ucf/assignments/ToDoListTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,13 +98,13 @@
       <recent name="ucf.assignments" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ToDoListTest.editItem_noChange">
-    <configuration name="ToDoListTest.addItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.ToDoListTest.sortItemComplete">
+    <configuration name="ToDoListTest.markItemComplete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.addItem&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.markItemComplete&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -117,12 +120,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ToDoListTest.clearAllItems" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ToDoListTest.markItemIncomplete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.clearAllItems&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.markItemIncomplete&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -138,12 +141,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ToDoListTest.editItemDescription" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ToDoListTest.sortItemAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.editItemDescription&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.sortItemAll&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -159,12 +162,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ToDoListTest.editItemDueDate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ToDoListTest.sortItemComplete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.editItemDueDate&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.sortItemComplete&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -180,12 +183,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ToDoListTest.editItem_noChange" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ToDoListTest.sortItemIncomplete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.editItem_noChange&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.sortItemIncomplete&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -203,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ToDoListTest.editItem_noChange" />
-        <item itemvalue="Gradle.ToDoListTest.editItemDueDate" />
-        <item itemvalue="Gradle.ToDoListTest.addItem" />
-        <item itemvalue="Gradle.ToDoListTest.editItemDescription" />
-        <item itemvalue="Gradle.ToDoListTest.clearAllItems" />
+        <item itemvalue="Gradle.ToDoListTest.sortItemComplete" />
+        <item itemvalue="Gradle.ToDoListTest.sortItemIncomplete" />
+        <item itemvalue="Gradle.ToDoListTest.sortItemAll" />
+        <item itemvalue="Gradle.ToDoListTest.markItemIncomplete" />
+        <item itemvalue="Gradle.ToDoListTest.markItemComplete" />
       </list>
     </recent_temporary>
   </component>
@@ -283,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626035621574</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Labels and Implements tests for requirements 7-8">
+      <created>1626035633161</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1626035633161</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

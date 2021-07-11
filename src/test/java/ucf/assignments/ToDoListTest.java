@@ -155,38 +155,113 @@ class ToDoListTest {
     void markItemComplete() {
         // Requirement 9.1
         //new ToDoList object
-        //new ArrayList Items with 3 items, item 1 Complete = false
-        //set ToDoList Items to that ArrayList
+        ToDoList tempList = new ToDoList();
+
+        //add to ArrayList Items 3 items
+        tempList.addItem("description 1", "2019-01-01");
+        tempList.addItem("description 2", "2020-01-02");
+        tempList.addItem("description 3", "2021-01-01");
+
         //call markItemComplete for item 1
+        tempList.getItem(0).markComplete();
+
         //assert item 1 Complete
+        assertTrue(tempList.getItem(0).getComplete());
     }
 
     @Test
     void markItemIncomplete() {
         // Requirement 9.2
         //new ToDoList object
-        //new ArrayList Items with 3 items, item 1 Complete = true
-        //set ToDoList Items to that ArrayList
-        //call markItemIncomplete for item 1
-        //assertfalse item 1 Complete
+        ToDoList tempList = new ToDoList();
+
+        //add to ArrayList Items 3 items
+        tempList.addItem("description 1", "2019-01-01");
+        tempList.addItem("description 2", "2020-01-02");
+        tempList.addItem("description 3", "2021-01-01");
+
+        //call markItemComplete for item 1
+        tempList.getItem(0).markComplete();
+        tempList.getItem(0).markIncomplete();
+
+        //assert false item 1 Complete
+        assertFalse(tempList.getItem(0).getComplete());
     }
 
     @Test
-    void sortItemComplete() {
+    void sortItemAll() {
+        // Requirement 10
         //new ToDoList object
-        //new ArrayList Items with 3 items, only item 1 !Complete
-        //set ToDoList Items to that ArrayList
+        ToDoList tempList = new ToDoList();
+
+        //ToDoList Items with 3 items, only item 1 is Complete
+        tempList.addItem("description 1", "2019-01-01");
+        tempList.addItem("description 2", "2020-01-02");
+        tempList.addItem("description 3", "2021-01-01");
+
+        tempList.getItem(0).markComplete();
+
+        //set Array Items to that ToDoList items
+        Item[] tempArray = new Item[3];
+        tempArray[0] = tempList.getItem(0);
+        tempArray[1] = tempList.getItem(1);
+        tempArray[2] = tempList.getItem(2);
+
         //call sort and hold temp
-        //assert temp item 1 is ToDoList item 2 and temp item 2 is TDL item 3
+        tempList.setItemList(tempList.sortItemAll());
+
+        //assert temp item 1 is ToDoList item 1 and temp item 3 is TDL item 3
+        assertTrue((tempList.getItem(0).getDueDateString().equals(tempArray[0].getDueDateString())) &&
+                (tempList.getItem(2).getDueDateString().equals(tempArray[2].getDueDateString())));
     }
 
     @Test
     void sortItemIncomplete() {
+        // Requirement 11
         //new ToDoList object
-        //new ArrayList Items with 3 items, only item 1 Complete
-        //set ToDoList Items to that ArrayList
+        ToDoList tempList = new ToDoList();
+
+        //ToDoList Items with 3 items, only item 1 is Complete
+        tempList.addItem("description 1", "2019-01-01");
+        tempList.addItem("description 2", "2020-01-02");
+        tempList.addItem("description 3", "2021-01-01");
+
+        tempList.getItem(0).markComplete();
+
+        //set Array Items to that ToDoList items
+        Item[] tempArray = new Item[3];
+        tempArray[0] = tempList.getItem(0);
+        tempArray[1] = tempList.getItem(1);
+        tempArray[2] = tempList.getItem(2);
+
         //call sort and hold temp
+        tempList.setItemList(tempList.sortItemIncomplete());
+
+        //assert TDList item 1 is array item 2
+        assertEquals(tempArray[1].getDescription(), tempList.getItem(0).getDescription());
+    }
+
+    @Test
+    void sortItemComplete() {
+        // Requirement 12
+        //new ToDoList object
+        ToDoList tempList = new ToDoList();
+
+        //ToDoList Items with 3 items, only item 3 is Complete
+        tempList.addItem("description 1", "2019-01-01");
+        tempList.addItem("description 2", "2020-01-02");
+        tempList.addItem("description 3", "2021-01-01");
+
+        tempList.getItem(2).markComplete();
+
+        //set ToDoList Items to that ArrayList
+        Item tempItem = tempList.getItem(2);
+
+        //call sort and hold temp
+        ArrayList<Item> tempArray = tempList.sortItemComplete();
+
         //assert temp item 1 is ToDoList item 2 and temp item 2 is TDL item 3
+        assertEquals(tempItem.getDescription(), tempArray.get(0).getDescription());
     }
 
     @Test
