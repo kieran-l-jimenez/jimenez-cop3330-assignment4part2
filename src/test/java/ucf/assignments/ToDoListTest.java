@@ -2,6 +2,7 @@ package ucf.assignments;
 
 import org.junit.jupiter.api.Test;
 
+import javax.lang.model.type.NullType;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -97,12 +98,21 @@ class ToDoListTest {
     }
 
     @Test
-    void editItem() {
+    void editItemDueDate() {
         //new ToDoList object
         //new ArrayList Items with 3 items
         //set ToDoList Items to that ArrayList
         //call editItem changing duedate of item 1
         //assert item 1 dueDate is new date
+    }
+
+    @Test
+    void editItemDescription() {
+        //new ToDoList object
+        //new ArrayList Items with 3 items
+        //set ToDoList Items to that ArrayList
+        //call editItem changing description of item 2
+        //assert item 2 dueDate is new date
     }
 
     @Test
@@ -175,5 +185,24 @@ class ToDoListTest {
 
         //assert TDL item 1 date is expected1 and TDL item 3 date is expected3
         assertEquals(first.getDueDateString(), temp.getItem(0).getDueDateString());
+    }
+
+    @Test
+    void clearAllItems() {
+        // Requirement 6
+        //new ToDoList, fill with three items
+        ToDoList tempList = new ToDoList();
+        tempList.addItem("description 1", "2021-07-01");
+        tempList.addItem("description 2", "2021-07-02");
+        tempList.addItem("description 3", "2021-07-03");
+
+        //clearAllItems
+        tempList.clearAllItems();
+
+        //add different first item
+        tempList.addItem("new item 1", "2021-10-31");
+
+        //assert list is null
+        assertEquals(tempList.getItem(0).getDescription(), "new item 1");
     }
 }

@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3c62869-efe2-46f4-8d09-fe6ed44ce2d5" name="Default Changelist" comment="Partially finishes ToDoList implementation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/SortByDate.java" afterDir="false" />
+    <list default="true" id="c3c62869-efe2-46f4-8d09-fe6ed44ce2d5" name="Default Changelist" comment="Labels and Implements tests for requirements 1-5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ucf/assignments/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ucf/assignments/ToDoList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ucf/assignments/ItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ucf/assignments/ItemTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ucf/assignments/ToDoListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ucf/assignments/ToDoListTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/ToDoUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/ToDoUML.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +98,7 @@
       <recent name="ucf.assignments" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ToDoListTest.removeItem">
+  <component name="RunManager" selected="Gradle.ToDoListTest.clearAllItems">
     <configuration name="ItemTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -168,12 +162,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ToDoListTest.capacityCheck" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ToDoListTest.clearAllItems" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.capacityCheck&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ucf.assignments.ToDoListTest.clearAllItems&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -212,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ToDoListTest.clearAllItems" />
         <item itemvalue="Gradle.ToDoListTest.removeItem" />
         <item itemvalue="Gradle.ItemTest" />
         <item itemvalue="Gradle.ToDoListTest.addItem" />
         <item itemvalue="Gradle.ItemTest.setDescriptionLarge" />
-        <item itemvalue="Gradle.ToDoListTest.capacityCheck" />
       </list>
     </recent_temporary>
   </component>
@@ -271,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625974981154</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Labels and Implements tests for requirements 1-5">
+      <created>1626032220993</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1626032220993</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,7 +294,8 @@
     <MESSAGE value="Adds readme.md" />
     <MESSAGE value="Updates .java files&#10;&#10;-.java files now follow Oracle coding standard&#10;-Class variables changed to private, reflected in UML" />
     <MESSAGE value="Partially finishes ToDoList implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Partially finishes ToDoList implementation" />
+    <MESSAGE value="Labels and Implements tests for requirements 1-5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Labels and Implements tests for requirements 1-5" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
