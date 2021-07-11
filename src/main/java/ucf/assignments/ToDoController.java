@@ -1,10 +1,13 @@
 /*
+ * ToDoController
+ *
+ * 2021-07-10
+ *
  *  UCF COP3330 Summer 2021 Assignment 4 Solution
  *  Copyright 2021 Kieran Jimenez
  */
 package ucf.assignments;
 
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;

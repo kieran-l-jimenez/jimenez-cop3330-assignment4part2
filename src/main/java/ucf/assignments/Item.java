@@ -1,4 +1,8 @@
 /*
+ * Item
+ *
+ * 2021-07-10
+ *
  *  UCF COP3330 Summer 2021 Assignment 4 Solution
  *  Copyright 2021 Kieran Jimenez
  */
@@ -11,9 +15,9 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class Item {
-    String Description;
-    Calendar DueDate;//YYYY-MM-DD
-    Boolean Complete;
+    private String Description;
+    private Calendar DueDate;
+    private Boolean Complete;
 
     public Item() {
         Complete = false;
@@ -28,14 +32,13 @@ public class Item {
     }
 
     public String getDueDateString() {
-        String string;
-        string = String.format("%4d-%2d-%2d", DueDate.get(Calendar.YEAR), DueDate.get(Calendar.MONTH), DueDate.get(Calendar.DAY_OF_MONTH));
-        return string;
+        return String.format("%4d-%2d-%2d", DueDate.get(Calendar.YEAR), DueDate.get(Calendar.MONTH),
+                DueDate.get(Calendar.DAY_OF_MONTH));
     }
 
     public void setDueDate(String newDueDate) {
         //check that new due date follows format "\d\d\d\d-\d\d-\d\d"
-        if(this.validateDate(newDueDate)) {
+        if (this.validateDate(newDueDate)) {
             DateFormat dateForm = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             try {
                 DueDate.setTime(dateForm.parse(newDueDate));//set this.DueDate = new due date
@@ -46,10 +49,7 @@ public class Item {
     }
 
     private boolean validateDate(String newDueDate) {
-        if(newDueDate.matches("\\d\\d\\d\\d-\\d\\d-\\d\\d"))
-            return true;
-        else
-            return false;
+        return newDueDate.matches("\\d\\d\\d\\d-\\d\\d-\\d\\d");
     }
 
     public void markComplete() {

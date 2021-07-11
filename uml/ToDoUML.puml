@@ -16,9 +16,9 @@ class ToDoController {
 }
 'Req 1
 class ToDoList {
-Title : String
-Items : ArrayList
-numItems : int
+- Title : String
+- Items : ArrayList
+- numItems : int
 
 +setTitle()
 +getTitle() : String
@@ -48,12 +48,12 @@ numItems : int
 }
 
 class Item {
-Description : String
+- Description : String
 'Req 2
-DueDate : Date
+- DueDate : Date
 'Req 3
 'Format: YYYY-MM-DD
-Complete : Boolean
+- Complete : Boolean
 
 + getDescription() : String
 + setDescription()

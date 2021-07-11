@@ -1,4 +1,8 @@
 /*
+ * ToDoList
+ *
+ * 2021-07-10
+ *
  *  UCF COP3330 Summer 2021 Assignment 4 Solution
  *  Copyright 2021 Kieran Jimenez
  */
@@ -7,9 +11,9 @@ package ucf.assignments;
 import java.util.ArrayList;
 
 public class ToDoList {
-    String Title;
-    ArrayList<Item> Items;
-    int numItems;
+    private String Title;
+    private ArrayList<Item> Items;
+    private int numItems;
 
     public void setTitle(String newTitle) {
         //user inputs new data into text field in GUI window
@@ -18,12 +22,6 @@ public class ToDoList {
 
     public String getTitle() {
         return Title;
-    }
-
-    public Item getItem(int index) {
-        //returns a specific item data, most likely in a loop to display all items to GUI window
-        Item retItem = Items.get(index);
-        return retItem;
     }
 
     public void addItem(String desc, String date) {
@@ -37,6 +35,12 @@ public class ToDoList {
         numItems++;
         //insert sort by date, call sorting method here
 
+    }
+
+    public Item getItem(int index) {
+        //returns a specific item data, most likely in a loop to display all items to GUI window
+        Item retItem = Items.get(index);
+        return retItem;
     }
 
     public void removeItem() {
@@ -60,19 +64,19 @@ public class ToDoList {
         //have item call markIncomplete
     }
 
-    public ArrayList sortItemComplete() {
+    public ArrayList<Item> sortItemComplete() {
         //0 - <numItems
         //if item.Complete, add
         //return new/temp ArrayList
-        ArrayList tempArrayList = new ArrayList();
+        ArrayList<Item> tempArrayList = new ArrayList<Item>();
         return tempArrayList;
     }
 
-    public ArrayList sortItemIncomplete() {
+    public ArrayList<Item> sortItemIncomplete() {
         //0 - <numItems
         //if !item.Complete, add
         //return new/temp ArrayList
-        ArrayList tempArrayList = new ArrayList();
+        ArrayList<Item> tempArrayList = new ArrayList<Item>();
         return tempArrayList;
     }
 
