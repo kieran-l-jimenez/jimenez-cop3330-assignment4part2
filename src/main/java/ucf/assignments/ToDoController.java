@@ -8,36 +8,41 @@
  */
 package ucf.assignments;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class ToDoController {
+public class ToDoController implements Initializable{
     @FXML
-    private TextField itemDescriptionBox1;
+    private TextField itemDescriptionBox;
     @FXML
-    private TextField itemDueDateBox1;
+    private TextField itemDueDateBox;
     @FXML
-    private ChoiceBox itemFilter;
+    private ComboBox itemFilter;
+    @FXML
+    private ListView listView;
+    @FXML
+    private ChoiceBox itemActionType;
+
+    private ToDoList currentList;
 
     @FXML
-    public void makeItem(ActionEvent actionEvent) {
-        //Add Item button pressed
-        //read text field Item Description and Due Date (YYYY-MM-DD)
-        //add new item to Array List of tab selected
-    }
-
-    @FXML
-    public void addList(ActionEvent actionEvent) {
+    public void clearListPressed(ActionEvent actionEvent) {
         //create new ToDoList object
         //prompt for Title
         //add new object to current set
-        //create new tab matching pattern of "List 1" and "List 2"
+        //instantiate ToDoList here?
     }
 
     @FXML
-    public void openList(ActionEvent actionEvent) {
+    public void openListPressed(ActionEvent actionEvent) {
         //prompt for path to JSON file
         //create new ToDoList using data from JSON
         //add new ToDoList to current set
@@ -45,22 +50,100 @@ public class ToDoController {
     }
 
     @FXML
-    public void saveList(ActionEvent actionEvent) {
+    public void saveListPressed(ActionEvent actionEvent) {
         //prompt for directory to save list
         //save ToDoList data (including ArrayList of Items) as JSON
     }
 
     @FXML
-    public void showIncomplete(ActionEvent actionEvent) {
-        //create temp copy of selected ToDoList
-        //copy only Items with !complete or Complete == false
+    public void showListUpdated(ActionEvent actionEvent) {
+        String filter = itemFilter.getValue().toString();
+        ArrayList<Item> visibleItems;
+
+        switch (filter) {
+            case "Incomplete" ->
+                    //Show Incomplete, sortIncomplete
+                    visibleItems = currentList.sortItemIncomplete();
+            case "Complete" ->
+                    //Show Complete, sortComplete
+                    visibleItems = currentList.sortItemComplete();
+            default ->
+                    //Show All
+                    visibleItems = currentList.sortItemAll();
+        }
+
         //change ListView node to display from temp ToDoList
+        updateListView(visibleItems);
     }
 
     @FXML
-    public void showComplete(ActionEvent actionEvent) {
-        //create temp copy of selected ToDoList
-        //copy only Items with complete or Complete == true
-        //change ListView node to display from temp ToDoList
+    public void executePressed(ActionEvent actionEvent) {
+        String actionType = itemActionType.getValue().toString();
+        try {
+            switch (actionType) {
+                case "Add Item" -> makeItem(itemDescriptionBox.getText(), itemDueDateBox.getText());
+                case "Edit Item Description" -> editDescription(itemDescriptionBox.getText());
+                case "Edit Item DueDate" -> editDate(itemDueDateBox.getText());
+                case "Delete Item" -> deleteItem();
+                case "Mark Incomplete" -> markIncomplete();
+                case "Mark Complete" -> markComplete();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        currentList = new ToDoList();
+
+        itemFilter.getItems().addAll("All", "Incomplete", "Complete");
+        itemFilter.setValue("All");
+        itemFilter.setEditable(false);
+        itemFilter.setVisibleRowCount(3);
+
+        itemActionType.getItems().addAll("Add Item", "Edit Item Description", "Edit Item DueDate",
+                "Delete Item", "Mark Incomplete", "Mark Complete");
+        itemActionType.setValue("Add Item");
+    }
+
+    public void makeItem(String descriptionText, String dateText) throws Exception {
+        currentList.addItem(descriptionText, dateText);
+        updateListView(currentList.sortItemAll());
+    }
+
+    public void editDate(String newDateText) throws Exception {
+        currentList.editItemDate(currentList.getItem(listView.getSelectionModel().getSelectedIndex()), newDateText);
+        showListUpdated(new ActionEvent());
+        //updateListView(currentList.sortItemAll());
+    }
+
+    public void editDescription(String newDescriptionText) throws Exception {
+        currentList.editItemDescription(currentList.getItem(listView.getSelectionModel().getSelectedIndex()),
+                newDescriptionText);
+        showListUpdated(new ActionEvent());
+    }
+
+    public void deleteItem() throws Exception {
+        currentList.removeItem(currentList.getItem(listView.getSelectionModel().getSelectedIndex()));
+        showListUpdated(new ActionEvent());
+    }
+
+    public void markIncomplete() throws Exception {
+        currentList.getItem(listView.getSelectionModel().getSelectedIndex()).markIncomplete();
+        showListUpdated(new ActionEvent());
+    }
+
+    public void markComplete() throws Exception {
+        currentList.getItem(listView.getSelectionModel().getSelectedIndex()).markComplete();
+        showListUpdated(new ActionEvent());
+    }
+
+    public void updateListView(ArrayList<Item> visibleItems) {
+        listView.getItems().clear();
+        for (Item visibleItem : visibleItems) {
+            listView.getItems().add(visibleItem.getDescription() + "\t\t\tDue: " + visibleItem.getDueDateString());
+        }
     }
 }

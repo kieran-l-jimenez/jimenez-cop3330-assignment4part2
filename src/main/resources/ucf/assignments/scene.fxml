@@ -2,35 +2,38 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ToDoController">
+<AnchorPane prefHeight="574.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ToDoController">
    <children>
-      <TabPane layoutX="14.0" layoutY="48.0" prefHeight="340.0" prefWidth="570.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="14.0" layoutY="48.0" prefHeight="466.0" prefWidth="740.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="List">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane prefHeight="234.0" prefWidth="464.0">
+                        <AnchorPane prefHeight="336.0" prefWidth="576.0">
                            <children>
-                              <ScrollBar layoutX="444.0" orientation="VERTICAL" prefHeight="240.0" prefWidth="20.0" />
-                              <ListView prefHeight="240.0" prefWidth="444.0" />
+                              <ListView fx:id="listView" prefHeight="336.0" prefWidth="578.0" />
                            </children>
                         </AnchorPane>
-                        <Button layoutX="483.0" layoutY="269.0" mnemonicParsing="false" onAction="#makeItem" text="Add Item" />
-                        <TextField fx:id="itemDescriptionBox1" layoutX="14.0" layoutY="269.0" prefHeight="25.0" prefWidth="217.0" />
-                        <TextField fx:id="itemDueDateBox1" layoutX="232.0" layoutY="269.0" />
-                        <Label layoutX="79.0" layoutY="252.0" text="Item Description" />
-                        <Label layoutX="239.0" layoutY="252.0" text="Due Date (YYYY-MM-DD)" />
-                        <ChoiceBox fx:id="itemFilter" layoutX="465.0" layoutY="14.0" prefHeight="25.0" prefWidth="102.0" />
+                        <TextField fx:id="itemDescriptionBox" layoutX="14.0" layoutY="398.0" prefHeight="25.0" prefWidth="405.0" />
+                        <TextField fx:id="itemDueDateBox" layoutX="422.0" layoutY="398.0" />
+                        <Label layoutX="173.0" layoutY="381.0" text="Item Description" />
+                        <Label layoutX="429.0" layoutY="381.0" text="Due Date (YYYY-MM-DD)" />
+                        <Label layoutX="638.0" layoutY="14.0" text="Filter Type" />
+                        <ComboBox fx:id="itemFilter" layoutX="595.0" layoutY="31.0" onAction="#showListUpdated" prefHeight="25.0" prefWidth="142.0" />
+                        <ChoiceBox fx:id="itemActionType" layoutX="597.0" layoutY="336.0" prefHeight="25.0" prefWidth="136.0" />
+                        <Label layoutX="634.0" layoutY="319.0" text="Item Action" />
+                        <Button layoutX="618.0" layoutY="398.0" mnemonicParsing="false" onAction="#executePressed" text="Execute Action" />
                      </children>
                   </AnchorPane>
             </content>
@@ -39,20 +42,50 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="258.0" layoutY="14.0" text="Help Page" />
-                        <Label layoutX="271.0" layoutY="86.0" text="Label" />
-                        <Label layoutX="177.0" layoutY="272.0" text="For more help read the &quot;readme.md&quot; file." />
+                        <Label layoutX="332.0" layoutY="14.0" text="Help Page">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font></Label>
+                        <Label layoutX="21.0" layoutY="77.0" text="Clear List - Clear all items open and prepare to create a new list">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label layoutX="290.0" layoutY="415.0" text="For more help see &quot;readme.md&quot;." />
+                        <Label layoutX="21.0" layoutY="97.0" text="Load List - Open a File Chooser and open an old list in this window">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label layoutX="21.0" layoutY="117.0" text="Export List - Open a File Chooser and save the current list in JSON format">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label layoutX="21.0" layoutY="146.0" text="Add Item - Create a new item with the Due Date and Description in the boxes at the bottom">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label layoutX="21.0" layoutY="166.0" text="Edit Item - Change an item's Due Date or Description">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label layoutX="21.0" layoutY="186.0" text="Delete Item - Remove an item from the list">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label layoutX="21.0" layoutY="226.0" text="Item Filter - Display All items, only Completed items, or only Incomplete items">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
         </tabs>
       </TabPane>
-      <ToolBar layoutX="14.0" layoutY="8.0" prefHeight="40.0" prefWidth="570.0">
+      <ToolBar layoutX="14.0" layoutY="8.0" prefHeight="40.0" prefWidth="740.0">
         <items>
-          <Button mnemonicParsing="false" onAction="#addList" text="New List" />
-            <Button mnemonicParsing="false" onAction="#openList" text="Load List" />
-            <Button mnemonicParsing="false" onAction="#saveList" text="Export List" />
+          <Button mnemonicParsing="false" onAction="#clearListPressed" text="Clear List" />
+            <Button mnemonicParsing="false" onAction="#openListPressed" text="Load List" />
+            <Button mnemonicParsing="false" onAction="#saveListPressed" text="Export List" />
         </items>
       </ToolBar>
    </children>

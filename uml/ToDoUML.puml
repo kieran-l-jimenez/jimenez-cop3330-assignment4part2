@@ -6,13 +6,22 @@ class App {
 }
 
 class ToDoController {
-+ addList()
-+ openList()
-+ saveList()
+- itemDescriptionBox : TextField
+- itemDueDateBox : TextField
+- itemFilter : ChoiceBox
+- currentList : ToDoList
+
++ clearListPressed()
++ openListPressed()
++ saveListPressed()
++ showAllSelected()
++ showIncompleteSelected()
++ showCompleteSelected()
++ makeItemPressed()
++ editItemPressed()
++ deleteItemPressed()
+
 + makeItem()
-+ showAll()
-+ showIncomplete()
-+ showComplete()
 }
 
 'Req 1

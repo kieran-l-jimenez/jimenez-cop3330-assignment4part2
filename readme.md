@@ -3,6 +3,14 @@
 The purpose of this program is to help the user manage and mark the completion of a set of tasks.
 The user can add, delete, mark complete, mark incomplete, and edit tasks.
 
+##Warning
+Invalid operations like: 
+- Editing/Deleting/Marking without a selected item
+- Creating an item without a date that matches the format
+
+will lead to the program freezing and losing any unsaved data, requiring a restart.
+For this reason it is advised to save early and often.
+
 ###1. Operation of To Do List Manager
 
 #####1.1 Menu Bar
@@ -29,6 +37,7 @@ Use this choice box to determine which items are displayed.
 "All" - Display every task within this list.  
 "Complete" - Display every task marked "Complete".  
 "Incomplete" - Display every task marked "Incomplete".  
+Press "Show List" to update the tasks displayed.
 
    Bottom: Text Fields & "Add Item" Button -  
 "Item Description" Field: Enter a description of a new task to be added to the To Do List.  
