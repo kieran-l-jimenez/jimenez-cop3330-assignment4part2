@@ -16,7 +16,7 @@ public class ToDoList {
     private int numItems;
 
     public ToDoList() {
-        title = "";
+        title = "List";
         items = new ArrayList<>();
         numItems = 0;
     }
@@ -31,7 +31,6 @@ public class ToDoList {
     }
 
     public void addItem(String desc, String date) {
-        //window asks for item info(passed in from controller class)
         //add item to Items
         Item temp = new Item();
         temp.setDescription(desc);
@@ -39,7 +38,7 @@ public class ToDoList {
         items.add(temp);
         //increment numItems
         numItems++;
-        //insert sort by date, call sorting method here
+        //sort by date, call sorting method here
         this.sortItemDate();
     }
 
@@ -143,16 +142,5 @@ public class ToDoList {
     public void sortItemDate() {
         //.sort arrays by DueDate
         items.sort(new SortByDate());
-    }
-
-    public void exportList() {
-        //new file, save info to a default directory or directory user gives in JSON
-    }
-
-    public void loadList() {
-        //open JSON file
-        //Title =
-        //numItems =
-        //0 - <numItems: addItem with JSON data
     }
 }

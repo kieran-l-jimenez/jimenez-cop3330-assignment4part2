@@ -1,5 +1,8 @@
 @startuml
 
+interface Comparator{}
+interface Initializable{}
+
 class App {
     + main()
     + start()
@@ -8,34 +11,47 @@ class App {
 class ToDoController {
 - itemDescriptionBox : TextField
 - itemDueDateBox : TextField
-- itemFilter : ChoiceBox
+- itemFilter : ComboBox
+- listView : ListView
+- itemActionType : ChoiceBox
+- listTitle : Tab
+
 - currentList : ToDoList
+- fileChooser : FileChooser
 
 + clearListPressed()
 + openListPressed()
 + saveListPressed()
-+ showAllSelected()
-+ showIncompleteSelected()
-+ showCompleteSelected()
-+ makeItemPressed()
-+ editItemPressed()
-+ deleteItemPressed()
++ showListUpdated()
++ executePressed()
 
++ initialize()
 + makeItem()
++ editDate()
++ editDescription()
++ deleteItem()
++ markIncomplete()
++ markComplete()
++ updateListView()
++ saveList()
+'Req 13
++ loadList()
+'Req 14
 }
 
 'Req 1
 class ToDoList {
-- Title : String
-- Items : ArrayList
+- title : String
+- items : ArrayList<Item>
 - numItems : int
 
 + ToDoList()
+
 + setTitle()
 + getTitle() : String
-+ getItem() : Item
 + addItem()
 'Req 4
++ getItem() : Item
 + removeItem()
 'Req 5
 + editItemDescription()
@@ -56,33 +72,37 @@ class ToDoList {
 + sortItemComplete() : ArrayList
 'Req 12
 + sortItemDate()
-+ exportList()
-'Req 13
-+ loadList()
-'Req 14
 }
 
 class Item {
 - Description : String
 'Req 2
-- DueDate : Date
+- DueDate : Calendar
 'Req 3
 'Format: YYYY-MM-DD
 - Complete : Boolean
 
 + Item()
+
 + getDescription() : String
 + setDescription()
 + getDueDate() : String
 + setDueDate()
 - validateDate() : Boolean
-'Req 3.1: see if 1)DD doesn't go past max for the month, 2)positive numbers
++ getComplete() : Boolean
 + markComplete()
 + markIncomplete()
+}
+
+class SortByDate {
++ compare() : int
 }
 
 ToDoList "1 " *-- "many" Item
 App - ToDoController
 ToDoController -- ToDoList
 javafx.Application <|-- App
+Comparator <|.. SortByDate
+Initializable <|.. ToDoController
+ToDoList . SortByDate
 @enduml

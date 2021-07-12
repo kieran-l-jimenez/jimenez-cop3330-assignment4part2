@@ -16,7 +16,7 @@
    <children>
       <TabPane layoutX="14.0" layoutY="48.0" prefHeight="466.0" prefWidth="740.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="List">
+          <Tab fx:id="listTitle" text="List">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -51,7 +51,7 @@
                               <Font size="14.0" />
                            </font></Label>
                         <Label layoutX="290.0" layoutY="415.0" text="For more help see &quot;readme.md&quot;." />
-                        <Label layoutX="21.0" layoutY="97.0" text="Load List - Open a File Chooser and open an old list in this window">
+                        <Label layoutX="21.0" layoutY="97.0" text="Load List - Open a File Chooser and open a list.json in this window">
                            <font>
                               <Font size="14.0" />
                            </font></Label>
@@ -63,7 +63,7 @@
                            <font>
                               <Font size="14.0" />
                            </font></Label>
-                        <Label layoutX="21.0" layoutY="166.0" text="Edit Item - Change an item's Due Date or Description">
+                        <Label layoutX="21.0" layoutY="166.0" text="Edit Item Description/Due Date - Change an item's Description or Due Date using the Description and Date fields">
                            <font>
                               <Font size="14.0" />
                            </font></Label>
@@ -71,10 +71,15 @@
                            <font>
                               <Font size="14.0" />
                            </font></Label>
-                        <Label layoutX="21.0" layoutY="226.0" text="Item Filter - Display All items, only Completed items, or only Incomplete items">
+                        <Label layoutX="21.0" layoutY="235.0" text="Item Filter - Display All items, only Completed items, or only Incomplete items">
                            <font>
                               <Font size="14.0" />
                            </font></Label>
+                        <Label layoutX="21.0" layoutY="206.0" text="Mark Incomplete/Complete - Mark an item as Incomplete or Complete">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
               </content>

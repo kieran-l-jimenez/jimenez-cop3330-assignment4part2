@@ -8,16 +8,22 @@
  */
 package ucf.assignments;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import com.google.gson.Gson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
 
 public class ToDoController implements Initializable{
     @FXML
@@ -30,29 +36,34 @@ public class ToDoController implements Initializable{
     private ListView listView;
     @FXML
     private ChoiceBox itemActionType;
+    @FXML
+    private Tab listTitle;
 
     private ToDoList currentList;
+    private FileChooser fileChooser;
 
     @FXML
     public void clearListPressed(ActionEvent actionEvent) {
         //create new ToDoList object
-        //prompt for Title
-        //add new object to current set
-        //instantiate ToDoList here?
+        ToDoList temp = new ToDoList();
+        //TODO prompt for Title
+        currentList.clearAllItems();
+        currentList = temp;
+        showListUpdated(new ActionEvent());
     }
 
     @FXML
     public void openListPressed(ActionEvent actionEvent) {
-        //prompt for path to JSON file
-        //create new ToDoList using data from JSON
-        //add new ToDoList to current set
-        //create new tab matching "List 1" and "List 2" with Title
+        Stage stage = new Stage();
+        fileChooser.setTitle("Open To Do List File");
+        loadList(fileChooser.showOpenDialog(stage));
     }
 
     @FXML
     public void saveListPressed(ActionEvent actionEvent) {
-        //prompt for directory to save list
-        //save ToDoList data (including ArrayList of Items) as JSON
+        Stage stage = new Stage();
+        fileChooser.setTitle("Save To Do List File");
+        saveList(fileChooser.showSaveDialog(stage));
     }
 
     @FXML
@@ -98,6 +109,10 @@ public class ToDoController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         currentList = new ToDoList();
 
+        fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON", "*.json"));
+
+
         itemFilter.getItems().addAll("All", "Incomplete", "Complete");
         itemFilter.setValue("All");
         itemFilter.setEditable(false);
@@ -106,11 +121,13 @@ public class ToDoController implements Initializable{
         itemActionType.getItems().addAll("Add Item", "Edit Item Description", "Edit Item DueDate",
                 "Delete Item", "Mark Incomplete", "Mark Complete");
         itemActionType.setValue("Add Item");
+
+        listTitle.setText(currentList.getTitle());
     }
 
     public void makeItem(String descriptionText, String dateText) throws Exception {
         currentList.addItem(descriptionText, dateText);
-        updateListView(currentList.sortItemAll());
+        showListUpdated(new ActionEvent());
     }
 
     public void editDate(String newDateText) throws Exception {
@@ -144,6 +161,25 @@ public class ToDoController implements Initializable{
         listView.getItems().clear();
         for (Item visibleItem : visibleItems) {
             listView.getItems().add(visibleItem.getDescription() + "\t\t\tDue: " + visibleItem.getDueDateString());
+        }
+    }
+
+    public void saveList(File file) {
+        Gson gson = new Gson();
+        try (FileWriter fileWriter = new FileWriter(file.getPath())) {
+            gson.toJson(currentList, fileWriter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadList(File file ) {
+        Gson gson = new Gson();
+        try (FileReader fileReader = new FileReader(file.getPath())) {
+            currentList = gson.fromJson(fileReader, ToDoList.class);
+            showListUpdated(new ActionEvent());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
